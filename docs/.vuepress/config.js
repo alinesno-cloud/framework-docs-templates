@@ -5,7 +5,7 @@ var utils = require('./utils.js')
 var { genNav, getComponentSidebar, deepClone } = utils
 
 module.exports = {
-  title: 'vue-element-admin',
+  title: '新狐云数字化底座',
   description: 'A magical vue admin',
   base: '/vue-element-admin-site/',
   head: [

@@ -1,50 +1,16 @@
 <template>
   <div class="home">
     <div class="hero">
-      <img v-if="data.heroImage" :src="$withBase(data.heroImage)" alt="hero">
 
-      <h1>{{ data.heroText || $title || 'Hello' }}</h1>
+      <h1>{{ title }}</h1>
 
-      <p class="description">{{ data.tagline || $description || 'Welcome to your VuePress site' }}</p>
+      <p class="description">
+        AlinesnoCloud 是一款高性能、轻量级的开源 Java 服务框架
+      </p>
 
       <p v-if="data.actionText && data.actionLink" class="action">
         <NavLink class="action-button" :item="actionLink" />
       </p>
-    </div>
-
-    <div v-if="isCN||isGitee" style="border-top: 1px solid #eaecef; text-align: center">
-      <h4>赞助商</h4>
-      <div style="display: flex;justify-content: space-around;width: 60%;margin: 0 auto;font-size: 14px;">
-        <div style="width: 300px">
-          <a
-            href="https://www.duohui.cn/?utm_source=vue-element-admin&utm_medium=web&utm_campaign=vue-element-admin_index"
-            title="多会"
-            target="_blank"
-          >
-            <img
-              height="50px"
-              src="https://qiniu.cdn.duohui.co/brand/duohui.png"
-              title="多会 - 活动服务销售平台"
-            >
-            <div style="color: #282828">活动服务销售平台</div>
-          </a>
-        </div>
-
-        <div style="width: 300px">
-          <a
-            href="https://youke.co/?utm_source=vue-element-admin&utm_medium=web&utm_campaign=vue-element-admin_index"
-            title="有客"
-            target="_blank"
-          >
-            <img
-              height="50px"
-              src="https://qiniu.cdn.duohui.co/brand/youke.png"
-              title="有客 - 客户消息直达工作群"
-            >
-            <div style="color: #2e6aa9">客户消息直达工作群</div>
-          </a>
-        </div>
-      </div>
     </div>
 
     <div v-if="data.features && data.features.length" class="features" :class="{isCN:isCN}">
@@ -66,6 +32,11 @@ import { isGitee } from './utils'
 
 export default {
   components: { NavLink },
+  data() {
+    return {
+      title: '服务化引擎框架'
+    }
+  },
   computed: {
     isCN() {
       return this.$lang === 'zh-CN'
@@ -97,7 +68,7 @@ export default {
 
 .home {
   padding: $navbarHeight 2rem 0;
-  max-width: 960px;
+  max-width: 1024px;
   margin: 0px auto;
 
   .hero {
@@ -119,7 +90,7 @@ export default {
 
     .description {
       max-width: 35rem;
-      font-size: 1.6rem;
+      font-size: 1.25rem ;
       line-height: 1.3;
       color: lighten($textColor, 40%);
     }
@@ -150,6 +121,7 @@ export default {
     align-items: flex-start;
     align-content: stretch;
     justify-content: space-between;
+    text-align: center ;
   }
 
   .feature {

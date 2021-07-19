@@ -1,7 +1,7 @@
 {
-  "name": "vue-element-admin-site",
+  "name": "alinesno-framework-docs-templates",
   "version": "2.0.0",
-  "description": "vue-element-admin-site",
+  "description": "产品框架介绍文档模板，用于后期框架对外的文档的说明和统一模板配置，便于产品化输出",
   "main": "index.js",
   "scripts": {
     "dev": "vuepress dev docs",
