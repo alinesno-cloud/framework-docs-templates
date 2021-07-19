@@ -20,6 +20,7 @@ module.exports = {
   themeConfig: {
     repo: 'PanJiaChen/vue-element-admin',
     docsRepo: 'PanJiaChen/vue-element-admin-site',
+    logo: 'http://training-static.linesno.com/fox_cloud/fox_header.png', // 注意图片放在 public 文件夹下
     docsDir: 'docs',
     editLinks: true,
     sidebarDepth: 3,
@@ -29,116 +30,6 @@ module.exports = {
     },
     locales: {
       '/': {
-        label: 'English',
-        selectText: 'Languages',
-        editLinkText: 'Edit this page on GitHub',
-        nav: [
-          {
-            text: 'Guide',
-            link: '/guide/'
-          },
-          {
-            text: 'Features',
-            items: genNav([...BackendNav, ...deepClone(ComponentNav)], 'EN')
-          },
-          {
-            text: 'Ecosystem',
-            items: genNav(deepClone(EcosystemNav), 'EN')
-          },
-          {
-            text: 'Donate',
-            link: '/donate/'
-          },
-          {
-            text: '中文站点(gitee)',
-            link: 'https://panjiachen.gitee.io/vue-element-admin-site/zh/'
-          }
-        ],
-        sidebar: {
-          '/guide/': [
-            {
-              title: 'Essentials',
-              collapsable: false,
-              children: genEssentialsSidebar()
-            },
-            {
-              title: 'Advanced',
-              collapsable: false,
-              children: genAdvancedSidebar()
-            },
-            {
-              title: 'Other',
-              collapsable: false,
-              children: [
-                '/guide/other/gitter.md',
-                '/guide/other/release-notes.md'
-              ]
-            }
-          ],
-          '/feature/component/': getComponentSidebar(
-            deepClone(ComponentNav),
-            'EN'
-          ),
-          '/feature/script/': [
-            '/feature/script/svgo.md',
-            '/feature/script/new.md'
-          ]
-        }
-      },
-      '/es/': {
-        label: 'Español',
-        selectText: 'Idiomas',
-        editLinkText: 'Editar esta página en GitHub',
-        nav: [
-          {
-            text: 'Guía',
-            link: '/es/guide/'
-          },
-          {
-            text: 'Características',
-            items: genNav([...BackendNav, ...deepClone(ComponentNav)], 'ES')
-          },
-          {
-            text: 'Ecosistema',
-            items: genNav(deepClone(EcosystemNav), 'ES')
-          },
-          {
-            text: 'Donar',
-            link: '/es/donate/'
-          }
-        ],
-        sidebar: {
-          '/es/guide/': [
-            {
-              title: 'Esenciales',
-              collapsable: false,
-              children: genEssentialsSidebar('/es')
-            },
-            {
-              title: 'Avanzado',
-              collapsable: false,
-              children: genAdvancedSidebar('/es')
-            },
-            {
-              title: 'Otro',
-              collapsable: false,
-              children: [
-                '/es/guide/other/gitter.md',
-                '/es/guide/other/release-notes.md'
-              ]
-            }
-          ],
-          '/es/feature/component/': getComponentSidebar(
-            deepClone(ComponentNav),
-            'ES'
-          ),
-          '/es/feature/script/': [
-            '/es/feature/script/svgo.md',
-            '/es/feature/script/new.md'
-          ]
-        }
-      },
-      '/zh/': {
         label: '简体中文',
         selectText: '选择语言',
         editLinkText: '在 GitHub 上编辑此页',
@@ -203,7 +94,7 @@ module.exports = {
   },
   locales: {
     '/': {
-      lang: 'en-US',
+      lang: 'zh-CN',
       description: 'A magical vue admin'
     },
     '/zh/': {

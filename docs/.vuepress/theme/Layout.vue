@@ -65,7 +65,7 @@ export default {
       const page = this.$page
       const { path } = page
 
-      if (path === '/zh/' || path === '/') {
+      if (path === '/' || path === '/es') {
         return true
       }
 
