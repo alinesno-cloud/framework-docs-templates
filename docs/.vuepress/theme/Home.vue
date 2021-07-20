@@ -18,7 +18,9 @@
     <div class="features-box">
       <div v-if="featuresAll.length" class="features">
           <div v-for="(feature, index) in featuresAll" :key="index" class="feature">
-            <div class="title-icon"><i :class="feature.icon"></i></div>
+            <div class="title-icon">
+                <img :src="'svg/' + feature.icon" />
+            </div>
             <h3>{{ feature.title }}</h3>
             <p>{{ feature.details }}</p>
           </div>
@@ -35,17 +37,23 @@
     <div class="footer-section">
         <ul>
           <li>
-            <p class="icon"><i class="fas fa-envelope"></i></p>
-            <p class="label">订阅邮件组</p>
-            <p class="tip">luoandong@gmail.com</p>
+            <p class="icon">
+                <img src="svg/dingtalk.svg" />
+            </p>
+            <p class="label">开发交流群</p>
+            <p class="tip">Java中台研发小组</p>
           </li>
           <li>
-            <p class="icon"><i class="fab fa-github"></i></p>
+            <p class="icon">
+                <img src="svg/GitHub.svg" />
+            </p>
             <p class="label">欢迎参与贡献！</p>
             <p class="tip">在 GitHub 上协作。我们期待您的加入！</p>
           </li>
           <li>
-            <p class="icon"><i class="fab fa-weixin"></i></p>
+            <p class="icon">
+                <img src="svg/wechat.svg" />
+            </p>
             <p class="label">请关注我们的公众号！</p>
             <p class="tip">我们会在第一时间分享新发布的特性和使用心得</p>
           </li>
@@ -72,36 +80,36 @@ export default {
           title: '面向接口代理的高性能RPC调用',
           details:
             '提供高性能的基于代理的远程调用能力，服务以接口为粒度，为开发者屏蔽远程调用底层细节。',
-          icon: 'fas fa-space-shuttle'
+          icon: 'screen_check.svg'
         },
         {
           title: '智能负载均衡',
           details:
             '内置多种负载均衡策略，智能感知下游节点健康状况，显著减少调用延迟，提高系统吞吐量。',
-          icon: 'fab fa-angular'
+          icon: 'paper_plane_fill.svg'
         },
         {
           title: '服务自动注册与发现',
           details: '支持多种注册中心服务，服务实例上下线实时感知。',
-          icon: 'fas fa-charging-station'
+          icon: 'screen_check.svg'
         },
         {
           title: '高度可扩展能力',
           details:
-            '遵循微内核+插件的设计原则，所有核心能力如Protocol、Transport、Serialization被设计为扩展点，平等对待内置实现和第三方实现。',
-          icon: 'fas fa-chalkboard'
+            '遵循微内核+插件的设计原则，所有核心能力被设计为扩展点，平等对待内置实现和第三方实现。',
+          icon: 'package.svg'
         },
         {
           title: '运行期流量调度',
           details:
             '内置条件、脚本等路由策略，通过配置不同的路由规则，轻松实现灰度发布，同机房优先等功能。',
-          icon: 'fas fa-code'
+          icon: 'Logosvg.svg'
         },
         {
           title: '可视化的服务治理与运维',
           details:
             '提供丰富服务治理、运维工具：随时查询服务元数据、服务健康状态及调用统计，实时下发路由策略、调整配置参数。',
-          icon: 'fab fa-angular'
+          icon: 'application_group.svg'
         }
       ]
     }
@@ -200,7 +208,7 @@ $accentColor = #005bd4
     justify-content: space-between;
     text-align: center ;
     background-color : #f7fbfd ;
-    max-width: 1560px;
+    max-width: 1200px;
     margin: auto;
   }
 
@@ -208,6 +216,10 @@ $accentColor = #005bd4
     flex-grow: 1;
     flex-basis: 30%;
     max-width: 30%;
+
+    &:hover{
+      cursor pointer
+    }
 
     h2 {
       font-size: 1.4rem;
@@ -243,10 +255,10 @@ $accentColor = #005bd4
     }
 
     ul{
-        float :left ;
-        max-width: 1560px ; 
+        max-width: 1200px ; 
         width : 100%;
         margin: auto ;
+        padding: 0px;
     }
 
     li{
@@ -259,6 +271,10 @@ $accentColor = #005bd4
       line-height: 0.5rem;
       padding: 0px;
       margin: 10px;
+
+      img{
+        width:45px;
+      }
     }
 }
 
@@ -332,6 +348,10 @@ $accentColor = #005bd4
 .title-icon{
   font-size:2.2rem ;
   color: $accentColor;
+
+  img{
+    width: 45px;
+  }
 }
 
 </style>
