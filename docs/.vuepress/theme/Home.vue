@@ -2,6 +2,8 @@
   <div class="home">
     <div class="hero">
 
+      <img v-if="data.heroImage" :src="$withBase(data.heroImage)" alt="hero">
+
       <h1>{{ title }}</h1>
 
       <p class="description">
@@ -24,9 +26,9 @@
     </div>
 
     <div class="hero-section">
-      <p class="title"> 谁在使用 Dubbo </p>
+      <p class="title"> 加入讨论</p>
       <p class="description">
-        请在 XXXX 上提供信息来帮助 Dubbo 做的更好
+          通过以下方式加入讨论，或为AlinesnoCloud添砖加瓦
       </p>
     </div>
 
@@ -143,12 +145,12 @@ $accentColor = #005bd4
 
   .hero {
     text-align: center;
-    padding: 4.5rem 0px;
+    padding: 2rem 0px;
 
     >img {
-      max-height: 280px;
+      max-height: 180px;
       display: block;
-      margin: 3rem auto 1.5rem;
+      margin: 2rem auto 1.5rem;
     }
 
     h1 {
@@ -185,11 +187,11 @@ $accentColor = #005bd4
 
   .features-box{
     background-color : #f7fbfd ;
-    padding: 10px 0px;
+    padding: 2rem 0px;
   }
 
   .features {
-    padding: 1.2rem 0;
+    padding: 1rem 0;
     margin-top: 2.5rem;
     display: flex;
     flex-wrap: wrap;
@@ -221,7 +223,7 @@ $accentColor = #005bd4
   }
 
   .footer {
-    padding: 2.5rem;
+    padding: 2rem;
     text-align: center;
     color: lighten($textColor, 25%);
   }
@@ -263,10 +265,11 @@ $accentColor = #005bd4
 
 .hero-section {
     text-align: center;
-    padding: 1.8rem 0px;
+    padding: 3rem 0px;
 
    .title{
-     font-size: 1.2rem;
+    font-size: 1.6rem;
+    font-weight: 700;
    }
 
     .description {

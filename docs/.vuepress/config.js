@@ -5,9 +5,9 @@ var utils = require('./utils.js')
 var { genNav, getComponentSidebar, deepClone } = utils
 
 module.exports = {
-  title: '新狐云数字化底座',
+  title: '服务化引擎框架',
   description: 'A magical vue admin',
-  base: '/vue-element-admin-site/',
+  base: '/alinesno-framework-docs-templates/',
   head: [
     [
       'link',
@@ -18,12 +18,10 @@ module.exports = {
     ]
   ],
   themeConfig: {
-    repo: 'PanJiaChen/vue-element-admin',
-    docsRepo: 'PanJiaChen/vue-element-admin-site',
     logo: 'http://training-static.linesno.com/fox_cloud/fox_header.png', // 注意图片放在 public 文件夹下
     docsDir: 'docs',
     editLinks: true,
-    sidebarDepth: 3,
+    sidebarDepth: 0,
     algolia: {
       apiKey: 'ffce0083d0830de5f562c045a481410b',
       indexName: 'vue_element_admin'
@@ -35,58 +33,38 @@ module.exports = {
         editLinkText: '在 GitHub 上编辑此页',
         nav: [
           {
-            text: '指南',
-            link: '/zh/guide/'
+            text: '项目文档',
+            link: '/guide/'
           },
           {
-            text: '功能',
-            items: genNav([...BackendNav, ...deepClone(ComponentNav)], 'ZH')
-          },
-          {
-            text: '生态系统',
-            items: genNav(deepClone(EcosystemNav), 'ZH')
-          },
-          {
-            text: '捐赠',
-            link: '/zh/donate/'
-          },
-          {
-            text: '中文站点(gitee)',
-            link: 'https://panjiachen.gitee.io/vue-element-admin-site/zh/'
-          },
-          {
-            text: '招聘',
-            link: '/zh/job/'
+            text: '视频教程',
+            link: '/video/'
           }
         ],
         sidebar: {
-          '/zh/guide/': [
+          '/video/': [
             {
-              title: '基础',
+              title: '视频教程',
               collapsable: false,
-              children: genEssentialsSidebar('/zh')
-            },
-            {
-              title: '进阶',
-              collapsable: false,
-              children: genAdvancedSidebar('/zh')
-            },
-            {
-              title: '其它',
-              collapsable: false,
-              children: [
-                '/zh/guide/other/faq.md',
-                '/zh/guide/other/release-notes.md'
-              ]
+              children: genVideoSidebar()
             }
           ],
-          '/zh/feature/component/': getComponentSidebar(
-            deepClone(ComponentNav),
-            'ZH'
-          ),
-          '/zh/feature/script/': [
-            '/zh/feature/script/svgo.md',
-            '/zh/feature/script/new.md'
+          '/guide/': [
+            {
+              title: '基础框架',
+              collapsable: false,
+              children: genEssentialsSidebar()
+            },
+            {
+              title: '分布式',
+              collapsable: false,
+              children: genAdvancedSidebar('/')
+            },
+            {
+              title: '前端框架',
+              collapsable: false,
+              children: genAdvancedSidebar('/')
+            }
           ]
         }
       }
@@ -96,14 +74,6 @@ module.exports = {
     '/': {
       lang: 'zh-CN',
       description: 'A magical vue admin'
-    },
-    '/zh/': {
-      lang: 'zh-CN',
-      description: 'A magical vue admin'
-    },
-    '/es/': {
-      lang: 'es-ES',
-      description: 'Un administrador mágico de vue'
     }
   },
   configureWebpack: {
@@ -112,11 +82,17 @@ module.exports = {
         '@public': './public'
       }
     }
-  },
-  ga: 'UA-109340118-1'
+  }
 }
 
-function genEssentialsSidebar(type = '') {
+function genCommonCoreSidebar() {
+  const mapArr = ['/guide/']
+  return mapArr.map(i => {
+    return i
+  })
+}
+
+function genEssentialsSidebar() {
   const mapArr = [
     '/guide/',
     '/guide/essentials/layout.md',
@@ -132,11 +108,11 @@ function genEssentialsSidebar(type = '') {
     '/guide/essentials/env.md'
   ]
   return mapArr.map(i => {
-    return type + i
+    return i
   })
 }
 
-function genAdvancedSidebar(type = '') {
+function genVideoSidebar() {
   const mapArr = [
     '/guide/advanced/cors.md',
     '/guide/advanced/eslint.md',
@@ -153,6 +129,27 @@ function genAdvancedSidebar(type = '') {
     '/guide/advanced/sass.md'
   ]
   return mapArr.map(i => {
-    return type + i
+    return i
+  })
+}
+
+function genAdvancedSidebar() {
+  const mapArr = [
+    '/guide/advanced/cors.md',
+    '/guide/advanced/eslint.md',
+    '/guide/advanced/git-hook.md',
+    '/guide/advanced/style-guide.md',
+    '/guide/advanced/lazy-loading.md',
+    '/guide/advanced/chart.md',
+    '/guide/advanced/icon.md',
+    '/guide/advanced/cdn.md',
+    '/guide/advanced/theme.md',
+    '/guide/advanced/i18n.md',
+    '/guide/advanced/error.md',
+    '/guide/advanced/webpack.md',
+    '/guide/advanced/sass.md'
+  ]
+  return mapArr.map(i => {
+    return i
   })
 }

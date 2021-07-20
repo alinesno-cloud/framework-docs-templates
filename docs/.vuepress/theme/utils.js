@@ -34,6 +34,7 @@ export function loadCarbon() {
   )
 }
 
+/*
 export function loadGitter() {
   const id = 'vue-element-admin/discuss'
   const existingScript = document.getElementById(id)
@@ -45,3 +46,4 @@ export function loadGitter() {
   document.body.appendChild(script)
   dynamicLoadScript('https://sidecar.gitter.im/dist/sidecar.v1.js')
 }
+*/
