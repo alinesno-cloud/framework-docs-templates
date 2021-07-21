@@ -19,7 +19,7 @@
       <div v-if="featuresAll.length" class="features">
           <div v-for="(feature, index) in featuresAll" :key="index" class="feature">
             <div class="title-icon">
-                <img :src="'svg/' + feature.icon" />
+                <img :src="$withBase('/svg/' + feature.icon)" />
             </div>
             <h3>{{ feature.title }}</h3>
             <p>{{ feature.details }}</p>
@@ -38,21 +38,21 @@
         <ul>
           <li>
             <p class="icon">
-                <img src="svg/dingtalk.svg" />
+                <img :src="$withBase('/svg/dingtalk.svg')" />
             </p>
             <p class="label">开发交流群</p>
             <p class="tip">Java中台研发小组</p>
           </li>
           <li>
             <p class="icon">
-                <img src="svg/GitHub.svg" />
+                <img :src="$withBase('/svg/GitHub.svg')" />
             </p>
             <p class="label">欢迎参与贡献！</p>
             <p class="tip">在 GitHub 上协作。我们期待您的加入！</p>
           </li>
           <li>
             <p class="icon">
-                <img src="svg/wechat.svg" />
+                <img :src="$withBase('/svg/wechat.svg')" />
             </p>
             <p class="label">请关注我们的公众号！</p>
             <p class="tip">我们会在第一时间分享新发布的特性和使用心得</p>
@@ -245,7 +245,7 @@ $accentColor = #005bd4
     text-align: center;
     padding: 4rem 0px;
     background-color: #403f4c;
-    float:left  ; 
+    float:left  ;
     width: 100% ;
     margin-bottom: 50px;
 
@@ -255,7 +255,7 @@ $accentColor = #005bd4
     }
 
     ul{
-        max-width: 1200px ; 
+        max-width: 1200px ;
         width : 100%;
         margin: auto ;
         padding: 0px;
@@ -291,7 +291,7 @@ $accentColor = #005bd4
     .description {
       font-size: 1.25rem ;
       line-height: 1.3;
-      color: #333 ; 
+      color: #333 ;
     }
 }
 
