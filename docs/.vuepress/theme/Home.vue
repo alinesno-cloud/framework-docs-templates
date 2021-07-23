@@ -1,8 +1,12 @@
 <template>
   <div class="home">
-    <div class="hero">
+    <span class="dashboard-home" @click="dashboardHome">
+      <img class="icon" src="/framework-docs-templates/svg/screen_check.svg" />
+      <span class="label"> 工作台 </span>
+    </span>
 
-      <img v-if="data.heroImage" :src="$withBase(data.heroImage)" alt="hero">
+    <div class="hero">
+      <img v-if="data.heroImage" :src="$withBase(data.heroImage)" alt="hero" />
 
       <h1>{{ title }}</h1>
 
@@ -17,47 +21,49 @@
 
     <div class="features-box">
       <div v-if="featuresAll.length" class="features">
-          <div v-for="(feature, index) in featuresAll" :key="index" class="feature">
-            <div class="title-icon">
-                <img :src="$withBase('/svg/' + feature.icon)" />
-            </div>
-            <h3>{{ feature.title }}</h3>
-            <p>{{ feature.details }}</p>
+        <div
+          v-for="(feature, index) in featuresAll"
+          :key="index"
+          class="feature"
+        >
+          <div class="title-icon">
+            <img :src="$withBase('/svg/' + feature.icon)" />
           </div>
+          <h3>{{ feature.title }}</h3>
+          <p>{{ feature.details }}</p>
+        </div>
       </div>
     </div>
 
     <div class="hero-section">
-      <p class="title"> 加入讨论</p>
-      <p class="description">
-          通过以下方式加入讨论，或为AlinesnoCloud添砖加瓦
-      </p>
+      <p class="title">加入讨论</p>
+      <p class="description">通过以下方式加入讨论，或为AlinesnoCloud添砖加瓦</p>
     </div>
 
     <div class="footer-section">
-        <ul>
-          <li>
-            <p class="icon">
-                <img :src="$withBase('/svg/dingtalk.svg')" />
-            </p>
-            <p class="label">开发交流群</p>
-            <p class="tip">Java中台研发小组</p>
-          </li>
-          <li>
-            <p class="icon">
-                <img :src="$withBase('/svg/GitHub.svg')" />
-            </p>
-            <p class="label">欢迎参与贡献！</p>
-            <p class="tip">在 GitHub 上协作。我们期待您的加入！</p>
-          </li>
-          <li>
-            <p class="icon">
-                <img :src="$withBase('/svg/wechat.svg')" />
-            </p>
-            <p class="label">请关注我们的公众号！</p>
-            <p class="tip">我们会在第一时间分享新发布的特性和使用心得</p>
-          </li>
-        </ul>
+      <ul>
+        <li>
+          <p class="icon">
+            <img :src="$withBase('/svg/dingtalk.svg')" />
+          </p>
+          <p class="label">开发交流群</p>
+          <p class="tip">Java中台研发小组</p>
+        </li>
+        <li>
+          <p class="icon">
+            <img :src="$withBase('/svg/GitHub.svg')" />
+          </p>
+          <p class="label">欢迎参与贡献！</p>
+          <p class="tip">在 GitHub 上协作。我们期待您的加入！</p>
+        </li>
+        <li>
+          <p class="icon">
+            <img :src="$withBase('/svg/wechat.svg')" />
+          </p>
+          <p class="label">请关注我们的公众号！</p>
+          <p class="tip">我们会在第一时间分享新发布的特性和使用心得</p>
+        </li>
+      </ul>
     </div>
 
     <Content custom />
@@ -75,6 +81,8 @@ export default {
   data() {
     return {
       title: '服务化引擎框架',
+      saasTitle: '新狐云数字化平台',
+      saasUrl: 'http://v212.ui.saas.dev.lbxinhu.linesno.com:23456/',
       featuresAll: [
         {
           title: '面向接口代理的高性能RPC调用',
@@ -134,6 +142,9 @@ export default {
     }
   },
   methods: {
+    dashboardHome() {
+      window.location.href = this.saasUrl
+    },
     clickCoding(tag) {
       ga('send', 'click', 'e.coding', 'Action', tag)
     }
@@ -142,9 +153,9 @@ export default {
 </script>
 
 <style lang="stylus">
- @import '~@default-theme/styles/config.styl';
+@import '~@default-theme/styles/config.styl';
 
-$accentColor = #005bd4
+$accentColor = #005bd4;
 
 .home {
   padding: $navbarHeight 0rem 0;
@@ -171,7 +182,7 @@ $accentColor = #005bd4
 
     .description {
       max-width: 35rem;
-      font-size: 1.25rem ;
+      font-size: 1.25rem;
       line-height: 1.3;
       color: lighten($textColor, 40%);
     }
@@ -193,8 +204,8 @@ $accentColor = #005bd4
     }
   }
 
-  .features-box{
-    background-color : #f7fbfd ;
+  .features-box {
+    background-color: #f7fbfd;
     padding: 2rem 0px;
   }
 
@@ -206,8 +217,8 @@ $accentColor = #005bd4
     align-items: flex-start;
     align-content: stretch;
     justify-content: space-between;
-    text-align: center ;
-    background-color : #f7fbfd ;
+    text-align: center;
+    background-color: #f7fbfd;
     max-width: 1200px;
     margin: auto;
   }
@@ -217,8 +228,8 @@ $accentColor = #005bd4
     flex-basis: 30%;
     max-width: 30%;
 
-    &:hover{
-      cursor pointer
+    &:hover {
+      cursor: pointer;
     }
 
     h2 {
@@ -242,57 +253,56 @@ $accentColor = #005bd4
 }
 
 .footer-section {
-    text-align: center;
-    padding: 4rem 0px;
-    background-color: #403f4c;
-    float:left  ;
-    width: 100% ;
-    margin-bottom: 50px;
+  text-align: center;
+  padding: 4rem 0px;
+  background-color: #403f4c;
+  float: left;
+  width: 100%;
+  margin-bottom: 50px;
 
-    p{
-      color: #fff ;
-      line-height: .9rem;
+  p {
+    color: #fff;
+    line-height: 0.9rem;
+  }
+
+  ul {
+    max-width: 1200px;
+    width: 100%;
+    margin: auto;
+    padding: 0px;
+  }
+
+  li {
+    float: left;
+    width: 33%;
+  }
+
+  .icon {
+    font-size: 1.8rem;
+    line-height: 0.5rem;
+    padding: 0px;
+    margin: 10px;
+
+    img {
+      width: 45px;
     }
-
-    ul{
-        max-width: 1200px ;
-        width : 100%;
-        margin: auto ;
-        padding: 0px;
-    }
-
-    li{
-      float: left ;
-      width: 33% ;
-    }
-
-    .icon{
-      font-size: 1.8rem;
-      line-height: 0.5rem;
-      padding: 0px;
-      margin: 10px;
-
-      img{
-        width:45px;
-      }
-    }
+  }
 }
 
-
 .hero-section {
-    text-align: center;
-    padding: 3rem 0px;
+  text-align: center;
+  padding: 3rem 0px;
 
-   .title{
+  .title {
     font-size: 1.6rem;
     font-weight: 700;
-   }
+  }
 
-    .description {
-      font-size: 1.25rem ;
-      line-height: 1.3;
-      color: #333 ;
-    }
+  .description {
+    font-size: 1.25rem;
+    line-height: 1.3;
+    color: #333;
+  }
 }
 
 @media (max-width: $MQMobile) {
@@ -345,13 +355,40 @@ $accentColor = #005bd4
   }
 }
 
-.title-icon{
-  font-size:2.2rem ;
-  color: $accentColor;
+.dashboard-home {
+  position: fixed;
+  margin-left: 10px;
+  background: rgb(244, 246, 247);
+  padding: 0px 10px;
+  border-radius: 2px;
+  color: rgb(102, 102, 102);
+  font-size: 13px;
+  top: 16px;
+  z-index: 1000;
+  left: 220px;
+  height: 35px;
+  width: 70px;
+  cursor: pointer;
 
-  img{
-    width: 45px;
+  .icon {
+    width: 20px;
+    position: absolute;
+    margin-top: 8px;
+  }
+
+  .label {
+    margin-left: 25px;
+    padding-top: 8px;
+    position: absolute;
   }
 }
 
+.title-icon {
+  font-size: 2.2rem;
+  color: $accentColor;
+
+  img {
+    width: 45px;
+  }
+}
 </style>
