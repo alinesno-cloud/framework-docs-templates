@@ -39,6 +39,10 @@ module.exports = {
           {
             text: '视频教程',
             link: '/video/'
+          },
+          {
+            text: '新狐云',
+            link: 'http://v212.ui.saas.dev.lbxinhu.linesno.com:23456/index'
           }
         ],
         sidebar: {
