@@ -6,6 +6,11 @@
     @touchend="onTouchEnd"
   >
 
+    <span class="dashboard-home" @click="dashboardHome">
+      <img class="icon" src="/framework-docs-templates/svg/screen_check.svg" />
+      <span class="label"> 工作台 </span>
+    </span>
+
     <!-- <div v-if="isHome||isDonate" id="codefund" class="home-codefund" /> -->
 
     <Navbar v-if="shouldShowNavbar" @toggle-sidebar="toggleSidebar" />
@@ -171,6 +176,10 @@ export default {
     this.checkAdBlock()
   },
   methods: {
+    dashboardHome() {
+      var saasUrl = 'http://v212.ui.saas.dev.lbxinhu.linesno.com:23456/'
+      window.location.href = saasUrl
+    },
     checkLang() {
       let lang = navigator.language || navigator.userLanguage // 常规浏览器语言和IE浏览器
 
@@ -261,7 +270,7 @@ export default {
 </style>
 <style src="@default-theme/styles/theme.styl" lang="stylus"></style>
 
-<style>
+<style lang="stylus">
 .cf-wrapper {
   z-index: 101 !important;
 }
@@ -356,5 +365,33 @@ export default {
 
 #carbonads :lang(zh-CN) {
   display: none;
+}
+
+.dashboard-home {
+  position: fixed;
+  margin-left: 9px;
+  background: rgb(243, 246, 247);
+  padding: 1px 10px;
+  border-radius: 3px;
+  color: rgb(101, 102, 102);
+  font-size: 12px;
+  top: 15px;
+  z-index: 999;
+  left: 219px;
+  height: 34px;
+  width: 69px;
+  cursor: pointer;
+}
+
+.icon {
+  width: 19px;
+  position: absolute;
+  margin-top: 7px;
+}
+
+.label {
+  margin-left: 24px;
+  padding-top: 7px;
+  position: absolute;
 }
 </style>

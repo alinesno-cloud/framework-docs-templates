@@ -1,9 +1,5 @@
 <template>
   <div class="home">
-    <span class="dashboard-home" @click="dashboardHome">
-      <img class="icon" src="/framework-docs-templates/svg/screen_check.svg" />
-      <span class="label"> 工作台 </span>
-    </span>
 
     <div class="hero">
       <img v-if="data.heroImage" :src="$withBase(data.heroImage)" alt="hero" />
@@ -142,9 +138,6 @@ export default {
     }
   },
   methods: {
-    dashboardHome() {
-      window.location.href = this.saasUrl
-    },
     clickCoding(tag) {
       ga('send', 'click', 'e.coding', 'Action', tag)
     }
@@ -352,34 +345,6 @@ $accentColor = #005bd4;
         font-size: 1.25rem;
       }
     }
-  }
-}
-
-.dashboard-home {
-  position: fixed;
-  margin-left: 10px;
-  background: rgb(244, 246, 247);
-  padding: 0px 10px;
-  border-radius: 2px;
-  color: rgb(102, 102, 102);
-  font-size: 13px;
-  top: 16px;
-  z-index: 1000;
-  left: 220px;
-  height: 35px;
-  width: 70px;
-  cursor: pointer;
-
-  .icon {
-    width: 20px;
-    position: absolute;
-    margin-top: 8px;
-  }
-
-  .label {
-    margin-left: 25px;
-    padding-top: 8px;
-    position: absolute;
   }
 }
 
